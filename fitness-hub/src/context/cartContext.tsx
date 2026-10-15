@@ -22,7 +22,7 @@ interface Plaincontext {
         const [addKcal,setAddKcal]= useState(0);
         const [addMunite,setAddMunit] =useState(0);
 
-        const shareState:Plaincontext ={
+        const shareState ={
             addMunite,
             setAddMunit,
             addKcal,

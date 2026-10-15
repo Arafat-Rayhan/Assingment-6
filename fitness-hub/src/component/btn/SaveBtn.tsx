@@ -1,18 +1,18 @@
 "use client";
 import {PlanContext} from '@/context/cartContext';
-import React from 'react';
+import Link from 'next/link'
 import {PlainData} from '@/type/type'
 import {useContext} from 'react'
-const SaveBtn = ({plan,min,kcal} :{plan:PlainData}) => {
+const SaveBtn = ({plan,min,kcal} :{plan:PlainData,min:number,kcal:number}) => {
     const context =useContext(PlanContext);
 
     if (!context) {
   throw new Error("error");
 }
     
-   const {  todayP,setTodayP} = context;
-    const { addMunite,setAddMunit} =context;
-    const { addKcal,setAddKcal} =context;
+   const {  setTodayP} = context;
+    const { setAddMunit} =context;
+    const { setAddKcal} =context;
 
 
 const hendelP =()=>{
@@ -22,7 +22,10 @@ const hendelP =()=>{
 }
 
     return (
-         <button type='button' onClick={()=>hendelP()}></button>
+        <div className='w-[300px] h-[50px] bg-green-500 text-center text-4xl text-extrabold rounded-[40px]'>
+
+            <Link href="/My-plan" onClick={()=>hendelP()}>Save</Link>
+        </div>
     );
 };
 

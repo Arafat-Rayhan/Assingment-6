@@ -15,8 +15,8 @@ const Card = ({card}:{card:PlainData}) => {
 
   return (
     <>
-    <div className="w-full max-w-sm overflow-hidden rounded-xl bg-[#15171c] 
-    text-white">
+    <div className="w-[396px] max-w-sm overflow-hidden rounded-[16px] bg-[#15171c] 
+    text-white  ">
         
 
       {/* Image */}
@@ -29,7 +29,7 @@ const Card = ({card}:{card:PlainData}) => {
       />
         <LinkToGo card={card}>
       {/* Card Content */}
-      <div className="p-4">
+      <div className="p-[24px]">
 
         {/* Tags */}
         <div className="mb-3 flex gap-2">

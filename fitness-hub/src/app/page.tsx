@@ -2,7 +2,7 @@ import CardPlace from '@/component/card/cardPalas'
  
  const Home = () => {
   return (
-    <div>
+    <div className=''>
       Arafat Rayhan
       <CardPlace />
     </div>
