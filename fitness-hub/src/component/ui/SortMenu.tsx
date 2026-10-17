@@ -1,56 +1,40 @@
 "use client"
-import React, { useState,useEffect } from 'react';
-import { PlainData } from '@/type/type';
-import { getDataALL } from "../cardData/cData";
-const SortMenu = () => {
+import { useState } from "react";
+
+type SortBy="Duration"|"Calories"|"Rating"
+type props={
+    sortBy:SortBy;
+    setSortBy:(value:SortBy)=> void
+}
+ 
+const SortMenu = ({sortBy,setSortBy}:props) => {
     
     const [open,setOpen]=useState(false)
-    
-    const [sortBy,setSortBy]=useState<"Duration"|"Calories"|"Rating">("Rating")
-    
-    const[data,setData]=useState<PlainData[]>([])
 
-    useEffect(()=>{
-        const fetchData =async()=>{
-            const plans= await getDataALL()
-            setData(plans)
-        };
-        fetchData()
-    },[])
+       return (
+  <div>
+    <button onClick={() => setOpen(!open)}>
+      Sort by: {sortBy}
+    </button>
 
+    {open && (
+      <div className="flex justify-start gap-[8px]">
+        <button onClick={() => { setOpen(false); setSortBy("Calories"); }}>
+          Calories
+        </button>
 
-    if(!data){
-        throw new Error("error");
-        
-    }
+        <button onClick={() => { setOpen(false); setSortBy("Duration"); }}>
+          Duration
+        </button>
 
-    const sortedPlan= [...data].sort((a,b)=>{
-        if(sortBy==="Duration"){
-            return a.duration-b.duration
-        }
-        if(sortBy==="Calories"){
-            return a.caloriesBurned-b.caloriesBurned
-        }
-            return Number(a.rating)- Number(b.rating)
-        
-    })
+        <button onClick={() => { setOpen(false); setSortBy("Rating"); }}>
+          Rating
+        </button>
+      </div>
+    )}
+  </div>
 
-    return (
-        <div>
-            <button onClick={()=>setOpen(!open)}>Sort by</button>
-
-            {
-                open &&(
-                    <div>
-                        <button onClick={()=>{setSortBy("Calories"); setOpen(false)}}>Calories</button>
-                        <button onClick={()=>{setSortBy("Duration"); setOpen(false)}}>Duration</button>
-                        <button onClick={()=>{setSortBy("Rating"); setOpen(false)}}>Rating</button>
-                    </div>
-                )
-            }
-            
-        </div>
     );
 };
-
+// go ListBord
 export default SortMenu;

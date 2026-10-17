@@ -1,32 +1,27 @@
 
-import { usePlans } from "@/context/cartContext";
+import { PlainData } from "@/type/type";
 import LbordModel from '../layout/LbordModel';
 
-export const SetDataToToday = () => {
-    const { todayP } = usePlans();
-
+export const SetDataToToday = ({ plans }: { plans: PlainData[] }) => {
     return (
         <div className="grid gap-4">
-            {todayP.length > 0
-                ? todayP.map((item) => <LbordModel key={item.id} card={item} />)
+            {plans.length > 0
+                ? plans.map((item) => <LbordModel key={item.id} card={item} />)
                 : <p className="text-gray-400">No activities for today yet.</p>}
         </div>
     );
 };
 
+// go ListBored
 
-
-
-
-export const SetDataToSeved = () => {
-    const { seved } = usePlans();
-
-   return(
+export const SetDataToSeved = ({ plans }: { plans: PlainData[] }) => {
+    return (
     <div className="grid gap-4">
-        {seved.length > 0
-            ? seved.map((item) => <LbordModel key={item.id} card={item} />)
+        {plans.length > 0
+            ? plans.map((item) => <LbordModel key={item.id} card={item} />)
             : <p className="text-gray-400">No saved plans yet.</p>}
     </div>
-       
-   )
-}
+    );
+};
+
+// go ListBored
