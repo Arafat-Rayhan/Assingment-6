@@ -14,7 +14,4 @@ export interface PlainData {
     "instructions": string[],
 
 }
-
-export interface CardT {
-    card:PlainData;
-}
+ 

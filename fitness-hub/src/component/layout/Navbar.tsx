@@ -1,43 +1,36 @@
 import Image from 'next/image'
-import Link from 'next/link'
+import Navigation from '@/component/btn/Navigation'
+import NavCountBtn from '@/component/btn/NavCountBtn'
 
 
 
 const Navbar = () => {
     return (
-        <nav className='flex justify-between max-w-[1280px]'>
-            <div>
+        <nav className='flex justify-between items-center max-w-[1280px] mx-auto h-[70px]'>
+            <div className='flex w-[100px] h-[30px]'>
                  <Image
-            src="/B14-A6-Fit-Log/assets/logo.png" 
-            width={500}
-            height={500}
+            src="/logo.png" 
+            width={25}
+            height={25}
             alt="logo"
             ></Image>
 
-            <h2>
+            <h2 className='font-bolt text-[22px]'>
                 FITLOG
-            </h2>
+            </h2 >
                
             </div>
 
                 {/* link */}
-            <div>
-                    <Link href='/'>Workout</Link>
-                    <Link href='/My-plan'>My plan</Link>
+            <div className=''>
+                   <Navigation />
             </div>
 
             {/* 2 btn */}
 
             <div>
 
-                <div>
-                    <button></button>
-                    <h2>2</h2>
-                </div>
-                <div>
-                    <button></button>
-                    <h2>2</h2>
-                </div>
+               <NavCountBtn />
             </div>
            
         </nav>

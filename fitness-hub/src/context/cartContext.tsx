@@ -1,43 +1,65 @@
 "use client"
-import React from 'react';
-import {createContext,useState,ReactNode} from 'react'
+import {createContext,useState,useContext, ReactNode} from 'react'
 import  {PlainData} from '@/type/type'
 
-interface Plaincontext {
-   addMunite:number,
-   setAddMunit:React.Dispatch<React.SetStateAction <number>>
-   addKcal:number,
-   setAddKcal:React.Dispatch<React.SetStateAction <number>>
-   todayP:PlainData[],
-   setTodayP:React.Dispatch<React.SetStateAction <PlainData[]>>,
-    seved:PlainData[],
-    setSeved:React.Dispatch<React.SetStateAction <PlainData[]>>,
-}
-     export const PlanContext =createContext<Plaincontext|null >(null)
+type Plancontext = {
+  addMunite: number;
+  addKcal: number;
+  todayP: PlainData[];
+  seved: PlainData[];
+  cardNo: number;
+  todayPP: (card: PlainData, min: number, kcal: number) => void;
+  seveP: (card: PlainData, min: number, kcal: number) => void;
+};
 
-   
-    const PlainProvider =({children}:{children:ReactNode})=>{
-        const [seved,setSeved] = useState<PlainData[]>([])
-        const [todayP,setTodayP]=useState<PlainData[]>([])
-        const [addKcal,setAddKcal]= useState(0);
-        const [addMunite,setAddMunit] =useState(0);
+export const PlanContext = createContext<Plancontext | null>(null);
 
-        const shareState ={
-            addMunite,
-            setAddMunit,
-            addKcal,
-            setAddKcal,
-            todayP,
-            setTodayP,
-            seved,
-            setSeved,
-        }
+export const PlainProvider = ({ children }: { children: ReactNode }) => {
+  const [seved, setSeved] = useState<PlainData[]>([]);
+  const [todayP, setTodayP] = useState<PlainData[]>([]);
+  const [addKcal, setAddKcal] = useState(0);
+  const [addMunite, setAddMunit] = useState(0);
+  const [cardNo, setCardNo] = useState(0);
 
-         return (
-        <div>
-            <PlanContext.Provider value={shareState}>{children}</PlanContext.Provider>
-        </div>
-    );
-    }
+  const seveP = (card: PlainData, min: number, kcal: number) => {
+    if (seved.some((item) => item.id === card.id)) return;
 
-export default PlainProvider;
+    setSeved((previous) => [...previous, card]);
+    setAddMunit((previous) => previous + min);
+    setAddKcal((previous) => previous + kcal);
+    setCardNo((previous) => previous + 1);
+  };
+
+  const todayPP = (card: PlainData, min: number, kcal: number) => {
+    if (todayP.some((item) => item.id === card.id)) return;
+
+    setTodayP((previous) => [...previous, card]);
+    setAddMunit((previous) => previous + min);
+    setAddKcal((previous) => previous + kcal);
+    setCardNo((previous) => previous + 1);
+  };
+
+  const shareState: Plancontext = {
+    addMunite,
+    addKcal,
+    todayP,
+    seved,
+    cardNo,
+    todayPP,
+    seveP,
+  };
+
+  return (
+    <PlanContext.Provider value={shareState}>
+      {children}
+    </PlanContext.Provider>
+  );
+};
+
+export const usePlans = () => {
+  const context = useContext(PlanContext);
+  if (!context) {
+    throw new Error("usePlans must be used within PlainProvider");
+  }
+  return context;
+};

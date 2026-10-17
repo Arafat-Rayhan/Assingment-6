@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Provider from '@/context/cartContext'
+import {PlainProvider} from '@/context/cartContext'
 import Navbar from '@/component/layout/Navbar'
 
 
@@ -28,11 +28,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className=" text-white ">
-        <Navbar></Navbar>
         
-        <Provider>
+        <PlainProvider>
+        <Navbar/>
         {children}
-        </Provider>
+        </PlainProvider>
         </body>
     </html>
   );

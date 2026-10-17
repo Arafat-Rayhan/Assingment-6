@@ -5,9 +5,7 @@ import Save from '@/component/btn/SaveBtn'
 
 
 
-
 const DetailCard = ({card}:{card:PlainData}) => {
-    const num:number =0;
     return (
         <div className='w-[1300px] mx-auto pb-[40px] grid grid-cols-1  ' >
 
@@ -39,6 +37,7 @@ const DetailCard = ({card}:{card:PlainData}) => {
                             {/* table */}
 
                             <div className='bg-[#524747] rounded-[50px] w-full text-xl font-medium h-auto px-[50px]'>
+                                
                                 <div className=' grid grid-cols-2  border-b border-[#666161] p-3     ' >
                                 <span>EQUPMENT</span>
                                 <span>{card.equipment}</span>
@@ -82,8 +81,10 @@ const DetailCard = ({card}:{card:PlainData}) => {
                             {/* btn */}
 
                             <div className='flex gap-[20px] mt-[20px]'>
-                            <Plan plan={card} min={card.sets} kcal={card.caloriesBurned} />
-                            <Save plan={card} min={card.sets} kcal={card.caloriesBurned} />
+                                {/* button */}
+                             <Plan plan={card} min={card.duration} kcal={card.caloriesBurned} />
+                            {/* button */}
+                            <Save plan={card} min={card.duration} kcal={card.caloriesBurned} />
                             </div>
 
                     </div>

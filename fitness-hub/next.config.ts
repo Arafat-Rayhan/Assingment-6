@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
         pathname: '/free-photo/**',
       },
     ],
-  },
+   }, 
   /* config options here */
   experimental: {
     agentFeedback: true,
