@@ -16,14 +16,16 @@ export const getDataALL =  async() => {
 };
 
 
-export const getDataId =  async({id}:{id:string}): Promise<PlainData> => {
+export const getDataId = async ({ id }: { id: string }): Promise<PlainData | null> => {
+    const res = await fetch(`https://api.abcz.workers.dev/api/fitlog/${id}`);
 
-    try{
-        const res=await fetch( `https://api.abcz.workers.dev/api/fitlog/${id}`);
-        return  res.json();
-    }catch(error){
-        console.log(error)
-        throw error
+    if (res.status === 404) {
+        return null;
     }
-     
+
+    if (!res.ok) {
+        throw new Error(`Failed to fetch workout ${id}: ${res.status} ${res.statusText}`);
+    }
+
+    return res.json();
 };

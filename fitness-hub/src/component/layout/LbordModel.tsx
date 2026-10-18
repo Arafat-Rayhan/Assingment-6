@@ -2,13 +2,16 @@ import Image from 'next/image';
 import { PlainData } from '@/type/type';
 import Link from 'next/link'
 import DeleteBtn from '@/component/btn/DeleteBtn'
+import { toast } from 'sonner';
 
 type Props={
     remove:(id:number)=>void;
     card:PlainData
 }
 const LbordModel = ({card,remove}:Props) => {
-
+    const totoster=()=>{
+         toast.success(" marks the workout done")
+    }
     return (
         <div className='w-[1200px] h-[160px] rounded-[20px] p-[16px] flex justify-between items-center  bg-[#232732] '>
             <div className='flex justify-between gap-[12px]'>
@@ -38,7 +41,8 @@ const LbordModel = ({card,remove}:Props) => {
                  <Link href={`/${card.id}`} className='border border-solid border-green rounded-[9999px] W-[108px] h-[35px] flex justify-center items-center'>View Deteails</Link> 
                  <div className='w-[130px] h-[32px] bg-[#CCFF00] text-black border border-solid border-green rounded-[9999px] flex justify-center items-center'>
                         <span>✓</span>
-                        <span>Mark as Done</span>
+                    
+                    <button onClick={totoster}>Mark as Done</button>
                  </div>
                  <DeleteBtn removeThis={()=>remove(card.id)} />
                  {/* delete btn */}

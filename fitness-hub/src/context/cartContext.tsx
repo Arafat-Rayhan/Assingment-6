@@ -1,6 +1,7 @@
 "use client"
 import {createContext,useState,useContext, ReactNode} from 'react'
 import  {PlainData} from '@/type/type'
+import{toast} from 'sonner'
 
 type Plancontext = {
   
@@ -20,10 +21,11 @@ export const PlainProvider = ({ children }: { children: ReactNode }) => {
   
   const seveP = (card: PlainData,) => {
     if (seved.some((item) => item.id === card.id)){
-// alrady ok
+         toast("already seved")
     }
       else{
     setSeved((previous) => [...previous, card]);
+    toast.success("Added for later")
     }
 
     
@@ -31,17 +33,19 @@ export const PlainProvider = ({ children }: { children: ReactNode }) => {
 
   const todayPP = (card: PlainData,) => {
     if (todayP.some((item) => item.id === card.id)){
-
+      toast("already seved")
     }else{
 // alrady ok
       setTodayP((previous) => [...previous, card]);
+      toast.success("Added to today's plan")
     }
-
+    
     
   };
 
   const removeTodayPlan = (id: number) => {
     setTodayP((previous) => previous.filter((card) => card.id !== id));
+    
   };
 
   const removeSavedPlan = (id: number) => {
