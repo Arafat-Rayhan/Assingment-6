@@ -5,7 +5,7 @@ const Loading = () => {
         <div>
             liding..............
              <Image 
-                        src="/loading.png"
+                        src="/download.gif"
                         width={100}
                         height={100}
                         alt='loding'></Image>
