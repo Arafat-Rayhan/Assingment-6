@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         hostname: 'img.magnific.com',
         pathname: '/free-photo/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'localhost',
+        pathname: '**',
+      },
     ],
    }, 
   /* config options here */

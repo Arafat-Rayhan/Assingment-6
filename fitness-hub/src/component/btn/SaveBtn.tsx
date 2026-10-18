@@ -17,7 +17,7 @@ const SaveBtn = ({
 
   return (
     <div className="w-[300px] rounded-[40px] bg-green-500 text-center text-4xl font-extrabold">
-      <Link href="/My-plan" onClick={() => todayPP(plan, min, kcal)}>
+      <Link href="/My-plan" onClick={() => todayPP(plan)}>
         Save
       </Link>
     </div>

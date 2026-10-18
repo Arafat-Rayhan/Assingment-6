@@ -16,7 +16,7 @@ const PlanBtn = ({
 
     return (
     <div className="w-[300px] h-[50px] rounded-[40px] bg-red-500 text-center text-4xl font-extrabold">
-      <Link href="/My-plan" onClick={() => seveP(plan, min, kcal)}>
+      <Link href="/My-plan" onClick={() => seveP(plan)}>
         Plan
       </Link>
     </div>

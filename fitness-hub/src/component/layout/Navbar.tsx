@@ -6,16 +6,16 @@ import NavCountBtn from '@/component/btn/NavCountBtn'
 
 const Navbar = () => {
     return (
-        <nav className='flex justify-between items-center max-w-[1280px] mx-auto h-[70px]'>
-            <div className='flex w-[100px] h-[30px]'>
+        <nav className='flex justify-between items-center max-w-[1280px] mx-auto h-[70px] px[24px] sticky top-0 z-50 bg-black'>
+            <div className='flex justify-between w-[95px]  gap-[10px'>
                  <Image
             src="/logo.png" 
-            width={25}
-            height={25}
+            width={28}
+            height={28}
             alt="logo"
             ></Image>
 
-            <h2 className='font-bolt text-[22px]'>
+            <h2 className='font-[900px] text-[22px]'>
                 FITLOG
             </h2 >
                

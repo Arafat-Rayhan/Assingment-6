@@ -10,7 +10,12 @@ import SortMenu from "./SortMenu";
 import { SortBy, sortPlans } from "./sortingData";
 // all file here
 const ListBord = () => {
-    const{todayP,seved}=usePlans()
+    const {
+      todayP,
+      seved,
+      removeTodayPlan,
+      removeSavedPlan,
+    } = usePlans()
     
 
 
@@ -50,7 +55,7 @@ const ListBord = () => {
             active === "Today" ? "bg-lime-400 text-black" : "bg-gray-800 text-white"
           }`}
         >
-          Today
+          Today's plan
         </button>
         <button
           type="button"
@@ -61,13 +66,14 @@ const ListBord = () => {
             active === "Saved" ? "bg-lime-400 text-black" : "bg-gray-800 text-white"
           }`}
         >
-          Saved plans
+          Saved 
         </button>
       </div>
 
       {active === "Today"
-        ? <SetDataToToday plans={sortedTodayPlans} />
-        : <SetDataToSeved plans={sortedSavedPlans} />}
+        ? <SetDataToToday plans={sortedTodayPlans} onRemove={removeTodayPlan} />
+        : <SetDataToSeved plans={sortedSavedPlans} onRemove={removeSavedPlan} />
+      }
     </section>
   );
 };

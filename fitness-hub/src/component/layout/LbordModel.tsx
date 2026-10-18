@@ -1,7 +1,14 @@
 import Image from 'next/image';
 import { PlainData } from '@/type/type';
 import Link from 'next/link'
-const LbordModel = ({card}:{card:PlainData}) => {
+import DeleteBtn from '@/component/btn/DeleteBtn'
+
+type Props={
+    remove:(id:number)=>void;
+    card:PlainData
+}
+const LbordModel = ({card,remove}:Props) => {
+
     return (
         <div className='w-[1200px] h-[150px] rounded-[20px] p-[16px] gap-[12px] flex justify-between  bg-[#232732]'>
             <div className='flex justify-between'>
@@ -29,6 +36,8 @@ const LbordModel = ({card}:{card:PlainData}) => {
             <div className='w-[115px] h-[35px] border border-solid border-green rounded-[9999px] flex justify-center items-center'>
                 {/* right btn  link with id */}
                  <Link href={`/${card.id}`}>View Deteails</Link>
+                 <DeleteBtn removeThis={()=>remove(card.id)} />
+                 {/* delete btn */}
             </div>
         </div>
     );
