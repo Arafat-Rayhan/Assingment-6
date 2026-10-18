@@ -5,7 +5,11 @@ const Loading = () => {
     return (
         <div>
             wait.......
-            <Image></Image>
+            <Image 
+            src="/loading.png"
+            width={100}
+            height={100}
+            alt='loding'></Image>
         </div>
     );
 };

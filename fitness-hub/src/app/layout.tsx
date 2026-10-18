@@ -28,13 +28,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className=" text-white  ">
-        
+      <body className=" text-white grid grid-cols-1 mx-auto w-[1235px] ">
+        <div className="">
+
         <PlainProvider>
         <Navbar/>
         <Toaster position="top-right" richColors closeButton/>
         {children}
         </PlainProvider>
+        </div>
         </body>
     </html>
   );

@@ -6,7 +6,7 @@ import NavCountBtn from '@/component/btn/NavCountBtn'
 
 const Navbar = () => {
     return (
-        <nav className='flex justify-between items-center max-w-[1280px] mx-auto h-[70px] px[24px] sticky top-0 z-50 bg-black'>
+        <nav className='flex justify-between items-center w-[1235px] mx-auto h-[70px] px[24px] sticky top-0 z-50 bg-black mb-[40px]'>
             <div className='flex justify-between w-[95px]  gap-[10px'>
                  <Image
             src="/logo.png" 

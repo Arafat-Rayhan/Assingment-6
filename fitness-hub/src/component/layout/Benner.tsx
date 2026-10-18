@@ -1,9 +1,10 @@
 import Image from 'next/image'
-
+// mx-auto flex w-full max-w-[1235px] flex-col justify-between gap-8 p-[56px] md:h-[450px] md:flex-row md:items-center md:px-14 bg-[#222630] rounded-[16px] my-[32px]
 const Benner = () => {
     return (
-        <div className='mx-auto flex w-full max-w-[1235px] flex-col justify-between gap-8 p-[56px] md:h-[450px] md:flex-row md:items-center md:px-14 bg-[#222630] rounded-[16px] my-[32px]'>
-            <div className='h-full flex flex-col justify-between w-[560px] h-[300px]'>
+        <div className='flex flex-col items-center md:flex-row md:items-center md:justify-between w-[1235px] p-[56px] mx-auto bg-[#222630] rounded-[16px]   '>
+            {/* flex flex-col justify-between w-[560px]  sm:grid sm:grid-col-1 sm:items-center */}
+            <div className='w-[560px] flex flex-col justify-between h-full gap-[20px] '>
                 <h2 className='font-bolt text-sx text-green-500'>
                     WORKOUT LIBRARY
                 </h2>
