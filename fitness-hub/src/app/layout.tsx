@@ -5,6 +5,7 @@ import "./globals.css";
 import {PlainProvider} from '@/context/cartContext'
 import Navbar from '@/component/layout/Navbar'
 import {Toaster} from 'sonner'
+import Footer from '@/component/layout/Footer'
 
 
 const geistSans = Geist({
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Toaster position="top-right" richColors closeButton/>
         {children}
         </PlainProvider>
+        <Footer />
         </div>
         </body>
     </html>
