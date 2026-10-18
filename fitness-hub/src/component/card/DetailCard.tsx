@@ -9,11 +9,11 @@ import Save from '@/component/btn/SaveBtn'
 
 const DetailCard = ({card}:{card:PlainData}) => {
     return (
-        <div className='w-[1235px] mx-auto pb-[40px]  ' >
+        <div className=' w-full max-w-[1235px] mx-auto px-4'>
 
 
-                <div className='flex flex-col items-cnter' >
-                    <div className='mx-auto '>
+                <div className='flex flex-col  items-center gap-8 md:flex-row md:items-start md:justify-between w-full max-w-[1235px] mx-auto'>
+                    <div className='w-full md:w-5/12 flex justify-center '>
 
                     <Image
                     src={card.image}
@@ -21,13 +21,13 @@ const DetailCard = ({card}:{card:PlainData}) => {
                     height={100} 
                     
                     alt={card.name}
-                    className='w-[500px] h-[850px] rounded-[50px]'
+                    className='h-auto w-full max-w-[500px] rounded-[50px] object-cover md:h-[850px]'
                     >
 
                     </Image>
                         </div>
                     {/* hading */}
-                    <div className='flex flex-col items-center gap-[10px]'>
+                    <div className='flex w-full min-w-0 flex-col items-center gap-[10px] md:flex-1'>
                                 <h2 className='text-6xl font-extrabold'>
                                     {card.name}
 
