@@ -8,8 +8,8 @@ const DeleteBtn = ({removeThis}:Props) => {
          <button onClick={()=>removeThis()}>
             <Image
              src="/remove (1).png"
-             width={50}
-             height={50}
+             width={28}
+             height={28}
              alt='delete pic'
              >
             </Image></button>

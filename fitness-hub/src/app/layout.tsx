@@ -27,7 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className=" text-white ">
+      <body className=" text-white  ">
         
         <PlainProvider>
         <Navbar/>

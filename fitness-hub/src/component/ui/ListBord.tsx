@@ -37,15 +37,15 @@ const ListBord = () => {
   const savedCalories = seved.reduce((sum, plan) => sum + plan.caloriesBurned, 0);
 
   return (
-    <section className="mx-auto w-full max-w-6xl px-4 py-8">
+    <section className="flex w-[1200px] flex-col gap-25 ">
       {active === "Today"
       ? <CounterbordModel cardNo={todayCount} addMunite={todayDuration} addkcal={todayCalories}/> 
       :<CounterbordModel cardNo={savedCount} addMunite={savedDuration} addkcal={savedCalories}/>  
  
 
-}
-      <SortMenu sortBy={sortBy} setSortBy={setSortBy} />
-      <div className="mb-6 flex gap-3" role="tablist" aria-label="Plan lists">
+}       <div className=" flex justify-between gap-4">
+
+      <div className="mb-6 flex gap-3" role="tablist" aria-label="Plan lists ">
         <button
           type="button"
           role="tab"
@@ -54,7 +54,7 @@ const ListBord = () => {
           className={`rounded-full px-5 py-2 font-semibold ${
             active === "Today" ? "bg-lime-400 text-black" : "bg-gray-800 text-white"
           }`}
-        >
+          >
           Today's plan
         </button>
         <button
@@ -65,10 +65,12 @@ const ListBord = () => {
           className={`rounded-full px-5 py-2 font-semibold ${
             active === "Saved" ? "bg-lime-400 text-black" : "bg-gray-800 text-white"
           }`}
-        >
+          >
           Saved 
         </button>
       </div>
+          <SortMenu sortBy={sortBy} setSortBy={setSortBy} />
+          </div>
 
       {active === "Today"
         ? <SetDataToToday plans={sortedTodayPlans} onRemove={removeTodayPlan} />

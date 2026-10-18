@@ -14,11 +14,13 @@ const SortMenu = ({sortBy,setSortBy}:props) => {
        return (
   <div>
     <button onClick={() => setOpen(!open)}>
+      <span className="w-[150px] h-[35px] rounded-[20px] border border-solid border-red-500 ">
       Sort by: {sortBy}
+      </span>
     </button>
 
     {open && (
-      <div className="flex justify-start gap-[8px]">
+      <div className="flex w-[300px] flex justify-between  gap-5">
         <button onClick={() => { setOpen(false); setSortBy("Calories"); }}>
           Calories
         </button>
